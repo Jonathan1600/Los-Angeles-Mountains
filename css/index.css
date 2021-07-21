@@ -1,0 +1,12 @@
+#landing-page {
+    height: 100vh;
+}
+
+#landing-page-bg {
+    position: absolute;
+    background-image: url("../images/landing-bg.png");
+    height: 100%;
+    width: 100%;
+    z-index: -2;
+    background-size: cover;
+}
