@@ -10,6 +10,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Lato:ital@1&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/index.css">
@@ -20,7 +21,7 @@
     <section id="landing-page" class="section">
         <div id="landing-page-bg" class="bg-image"></div>
         <nav class="navigation-bar">
-            <img class="logo" src="images/Logo.png">
+            <img id="logo-1" class="logo" src="images/Logo.png">
             <ul>
                 <li><a href="#section-2">02. TEAM</a></li>
                 <li><a href="#section-1">01. HISTORY</a></li>
@@ -29,6 +30,7 @@
     </section>
 
     <section id="section-1" class="section">
+        <div id="bg-page-1" class="bg-image"></div>
         <nav id="page-1-nav" class="navigation-bar">
             <img class="logo" src="images/Logo-page-2.png">
 
@@ -37,12 +39,117 @@
                 <li><a href="#section-1">01. HISTORY</a></li>
             </ul>
         </nav>
+        <div id="page-1-contents">
+            <div id="page-1-text">
+                <img src="images/Text 1.png">
+            </div>
+
+            <!-- Instructions for the carousel weren't clear enough and contents weren't given so I included a similar carousel -->
+            <div id="carousel">
+
+                <div class="slideshow-container">
+
+                    <div class="mySlides fade">
+
+                        <img src="images/carousel-pic-1.png" style="width:100%">
+
+                    </div>
+
+                    <div class="mySlides fade">
+                        <img src="images/carousel-pic-2.png" style="width:100%">
+                    </div>
+
+                    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+                </div>
+                <br>
+
+                <div style="text-align:center">
+                    <span class="dot" onclick="currentSlide(1)"></span>
+                    <span class="dot" onclick="currentSlide(2)"></span>
+                </div>
+            </div>
+        </div>
+
 
     </section>
 
     <section id="section-2" class="section">
 
+        <div id="text-2-holder">
+            <img id="text-2" src="images/Text-2.png"></img>
+        </div>
+
+        <div id="tabs-holder">
+            <div class="tab">
+                <div class="tab-holder">
+                    <button class="tablinks" onclick="openTab(event, 'Mountain-1')">MOUNTAIN 1</button>
+                    <button class="tablinks" onclick="openTab(event, 'Mountain-2')">MOUNTAIN 2</button>
+                </div>
+            </div>
+
+            <div id="Mountain-1" class="tabcontent" >
+
+            </div>
+
+            <div id="Mountain-2" class="tabcontent">
+
+            </div>
+        </div>
+
+        <footer id="footer-2-holder">
+            <img id="footer-2" src="images/Footer.png"></img>
+        </footer>
+
+
     </section>
+
+    <script>
+
+        var slideIndex = 1;
+        showSlides(slideIndex);
+
+        function plusSlides(n) {
+            showSlides(slideIndex += n);
+        }
+
+        function currentSlide(n) {
+            showSlides(slideIndex = n);
+        }
+
+        function showSlides(n) {
+            var i;
+            var slides = document.getElementsByClassName("mySlides");
+            var dots = document.getElementsByClassName("dot");
+            if (n > slides.length) { slideIndex = 1 }
+            if (n < 1) { slideIndex = slides.length }
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            for (i = 0; i < dots.length; i++) {
+                dots[i].className = dots[i].className.replace(" active", "");
+            }
+            slides[slideIndex - 1].style.display = "block";
+            dots[slideIndex - 1].className += " active";
+        }
+
+        function openTab(evt, tabName) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tabcontent");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+            tablinks = document.getElementsByClassName("tablinks");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+            document.getElementById(tabName).style.display = "block";
+            evt.currentTarget.className += " active";
+        }
+
+        openTab(event, 'Mountain-1')
+    </script>
 
 </body>
 
